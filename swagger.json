@@ -1,0 +1,112 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Business & Owner API",
+      "description": "API documentation for Business and Owner endpoints"
+    },
+    "host": "localhost:5000",
+    "basePath": "/api",
+    "schemes": ["http"],
+    "paths": {
+      "/business": {
+        "get": {
+          "summary": "Get all businesses",
+          "description": "Retrieve a list of all registered businesses",
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Business"
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "Create a business",
+          "description": "Register a new business",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Business"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Business created"
+            }
+          }
+        }
+      },
+      "/owner": {
+        "get": {
+          "summary": "Get all owners",
+          "description": "Retrieve a list of all owners",
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/definitions/Owner"
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "summary": "Create an owner",
+          "description": "Register a new owner",
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "required": true,
+              "schema": {
+                "$ref": "#/definitions/Owner"
+              }
+            }
+          ],
+          "responses": {
+            "201": {
+              "description": "Owner created"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Business": {
+        "type": "object",
+        "properties": {
+          "business_name": { "type": "string" },
+          "email": { "type": "string" },
+          "mobile_number": { "type": "string" },
+          "address": { "type": "string" },
+          "city": { "type": "string" },
+          "state": { "type": "string" },
+          "country": { "type": "string" }
+        }
+      },
+      "Owner": {
+        "type": "object",
+        "properties": {
+          "full_name": { "type": "string" },
+          "email": { "type": "string" },
+          "mobile_number": { "type": "string" },
+          "address": { "type": "string" },
+          "city": { "type": "string" },
+          "state": { "type": "string" },
+          "country": { "type": "string" }
+        }
+      }
+    }
+  }
+  
